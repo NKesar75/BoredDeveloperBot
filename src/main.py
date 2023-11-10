@@ -6,7 +6,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='!', intents=intents, case_insensitive=True)
 
-@bot.command(help="Tells latency of the bot")
+@bot.command(help="Replies with latency of the bot")
 async def ping(ctx):
     await ctx.send(f'pong! - {round(bot.latency, 2)}ms')
 
