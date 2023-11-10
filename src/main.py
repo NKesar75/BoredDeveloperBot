@@ -1,20 +1,14 @@
-# bot.py
-import os
-from dotenv import load_dotenv, find_dotenv
-
-import discord
 from constants import DISCORD_TOKEN
+import discord
+from discord.ext import commands
 
-client = discord.Client()
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix='!', intents=intents, case_insensitive=True)
 
-@client.event
-async def on_ready():
-    print(f'{client.user} has connected to Discord!')
+@bot.command(help="Tells latency of the bot")
+async def ping(ctx):
+    await ctx.send(f'pong! - {round(bot.latency, 2)}ms')
 
+bot.run(DISCORD_TOKEN)
 
-
-
-if os.environ.get('LOAD_FILE', True):
-    load_dotenv(find_dotenv())
-
-client.run(DISCORD_TOKEN)
