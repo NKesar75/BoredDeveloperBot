@@ -1,22 +1,24 @@
 name: build our image
-
 on:
   push:
     branches: master
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
         uses: actions/checkout@v2
+      - zzzname: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
       - name: install buildx
         id: buildx
         uses: crazy-max/ghaction-docker-buildx@v1
         with:
           version: latest
       - name: build the image
-        run: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
         run: |
           docker buildx build \
             --tag hector7500/bored-developer-bot:latest \
