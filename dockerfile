@@ -1,7 +1,7 @@
-FROM python:3.11-alpine
+FROM python:3.11-buster
 
 # Install dev tools for me
-RUN apk add --no-cache vim bash git
+RUN apt-get update && apt-get install -y vim bash
 
 WORKDIR /app
 
