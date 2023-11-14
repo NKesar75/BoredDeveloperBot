@@ -16,6 +16,7 @@ jobs:
         with:
           version: latest
       - name: build the image
+        run: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
         run: |
           docker buildx build \
             --tag hector7500/bored-developer-bot:latest \
