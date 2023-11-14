@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v2
-      - zzzname: Login to Docker Hub
+      - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
