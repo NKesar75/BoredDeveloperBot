@@ -1,0 +1,7 @@
+# This is for deployed server to keep running
+services:
+  boredDeveloperBot:
+    build: hector7500/bored-developer-bot:latest
+    restart: always
+    volumes:
+      - /opt/boredDeveloperBot/.env:/app/.env

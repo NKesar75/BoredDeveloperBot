@@ -1,14 +1,14 @@
-FROM python:3.11
+FROM python:3.11-alpine
+
+# Install dev tools for me
+RUN apk add --no-cache vim bash git
 
 WORKDIR /app
 
 COPY requirements.txt requirements.txt
 
-# Install the requirements specified in file using RUN
 RUN pip3 install -r requirements.txt
 
-# copy all items in current local directory (source) to current container directory (destination)
 COPY ./src/ ./src
 
-# command to run when image is executed inside a container
 CMD [ "python3", "src/app.py" ]

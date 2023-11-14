@@ -10,5 +10,10 @@ bot = commands.Bot(command_prefix='!', intents=intents, case_insensitive=True)
 async def ping(ctx):
     await ctx.send(f'pong! - {round(bot.latency, 2)}ms')
 
+
+@bot.command(help="detects code changes and will restart the bot if there are any code changes on the main branch")
+async def restart(ctx):
+    await ctx.send(f"Please Ping @Hector for him to restart server")
+
 bot.run(DISCORD_TOKEN)
 
