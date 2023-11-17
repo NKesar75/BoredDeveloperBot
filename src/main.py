@@ -17,7 +17,7 @@ async def restart(ctx):
     await ctx.send(f"Please Ping @Hector for him to restart server")
 
 
-@bot.command(help="Add or Remove user calling command to the role, if no role is passed in passes list of roles avaiable")
+@bot.command(help="Add or Remove the role to the specific user calling command, if no role is passed in passes list of roles avaiable")
 async def role(ctx, role_name=None):
     allowed_roles = [role.name for role in ctx.guild.roles if role.name not in HIDDEN_ROLES]
     string_roles = "\n".join(allowed_roles)
