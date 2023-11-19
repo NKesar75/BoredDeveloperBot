@@ -9,16 +9,29 @@ bot = commands.Bot(command_prefix='!', intents=intents, case_insensitive=True)
 
 @bot.command(help="Replies with latency of the bot")
 async def ping(ctx):
+    """
+    Sends a message with the bot's latency.
+
+    Parameters:
+    - ctx (discord.ext.commands.Context): The context of the command.
+
+    Returns:
+    - None
+    """
     await ctx.send(f'pong! - {round(bot.latency, 2)}ms')
-
-
-@bot.command(help="detects code changes and will restart the bot if there are any code changes on the main branch")
-async def restart(ctx):
-    await ctx.send(f"Please Ping @Hector for him to restart server")
-
 
 @bot.command(help="Add or Remove the role to the specific user calling command, if no role is passed in passes list of roles avaiable")
 async def role(ctx, role_name=None):
+    """
+    Adds or removes a role from the specific user calling the command. If no role name is provided, it sends a list of available roles.
+
+    Parameters:
+    - ctx (discord.ext.commands.Context): The context of the command.
+    - role_name (str, optional): The name of the role to add or remove. Defaults to None.
+
+    Returns:
+    - None
+    """
     allowed_roles = [role.name for role in ctx.guild.roles if role.name not in HIDDEN_ROLES]
     string_roles = "\n".join(allowed_roles)
 
@@ -38,5 +51,7 @@ async def role(ctx, role_name=None):
         else:
             await ctx.send(f"{role_name} is not a valid role please use one of the following:\n{string_roles}")
 
-bot.run(DISCORD_TOKEN)
 
+
+
+bot.run(DISCORD_TOKEN)
