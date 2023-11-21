@@ -52,6 +52,25 @@ async def role(ctx, role_name=None):
             await ctx.send(f"{role_name} is not a valid role please use one of the following:\n{string_roles}")
 
 
+@bot.command(help="Sync all commands into the discord server this will allow discord to show matching tree of commands")
+async def sync(ctx):
+    """
+    Syncs all the commands into the Discord server, allowing Discord to display a matching tree of commands.
 
+    Example Usage:
+    ```python
+    !sync
+    ```
+    This command can be used in a Discord server where the bot is present. When the command is executed, it will sync all the commands into the server and display a message saying "Command tree synced."
+
+    Parameters:
+    - ctx (context): The context object representing the invocation of the command.
+
+    Returns:
+    - None
+
+    """
+    await bot.tree.sync()
+    await ctx.send('Command tree synced.')
 
 bot.run(DISCORD_TOKEN)
