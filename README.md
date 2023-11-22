@@ -10,5 +10,5 @@ To run this image locally:
 
 
 ## Contributing to this Project
-Please make desired changes and open a pull request to go to `main`. Someone with mainter access will review the code and either approve or 
+Please make desired changes and open a pull request to go to `master`. Someone with mainter access will review the code and either approve or 
 leave comments in the MR.
