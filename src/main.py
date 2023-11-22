@@ -44,7 +44,7 @@ async def on_ready():
 @client.tree.command()
 async def ping(interaction: discord.Interaction):
     """Replies with the bot's latency"""
-    await interaction.response.send_message(f'Hi, {interaction.user.mention}')
+    await interaction.response.send_message(f'pong! - {round(client.latency, 2)}ms')
 
 @client.tree.command()
 @app_commands.describe(

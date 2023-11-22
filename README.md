@@ -5,8 +5,7 @@ used for any server as long as you your own discord access token. It will need a
 
 ## Run Image locally 
 To run this image locally:
-1. you must first copy the `.env-example` file to a file named `.env` and set the discord token to your access token 
-via discord developer portal.
+1. you must first copy the `.env-example` file to a file named `.env` and replace the {values} with corrosponding values for your useage
 1. run the following command `python src/main.py` from the root of this project. 
 
 
